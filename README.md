@@ -10,8 +10,11 @@
 - The database (ClickHouse, MongoDB, MySQL, PostgreSQL) is not allowed to assign public access
 - The bucket (ObjectStorage) should not have rules and policies that allow public access
 - Disks, Snapshots, Images should not be publicly available
+- Kubernetes cluster should not have a public IP address
+- The Kubernetes cluster should be assigned a security group with rules assigned based on the least privileged principle
 - Security group should not allow inbound and outbound connections without IP restriction
 - Security groups should not allow access from private networks without IP restriction
+- The Control Plane of the cluster should be located in a separate VPC from the workers.
 - The security group should not contain a range of ports
 
 ## Access Control
@@ -35,9 +38,7 @@
 - If the bucket contains personal data, banking, or commercial secrets, then encryption should be configured for it
 - Versioning should be configured for the bucket
 - When creating a Kubernetes cluster in Yandex.Cloud, a network policy should be created based on the principle of the least privileged principle
-- The Kubernetes cluster should be assigned a security group with rules assigned based on the least privileged principle
 - The Kubernetes cluster should be configured according to CIS (for configuration that available for change by managed kubernetes).
-- Kubernetes cluster should not have a public IP address
 - It is desirable to configure updates for the cluster
 
 ## Marketplace
