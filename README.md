@@ -12,9 +12,9 @@
 - Disks, Snapshots, Images should not be publicly available
 - Kubernetes cluster should not have a public IP address
 - The Kubernetes cluster should be assigned a security group with rules assigned based on the least privileged principle
+- The Control Plane of the cluster should be located in a separate VPC from the workers.
 - Security group should not allow inbound and outbound connections without IP restriction
 - Security groups should not allow access from private networks without IP restriction
-- The Control Plane of the cluster should be located in a separate VPC from the workers.
 - The security group should not contain a range of ports
 
 ## Access Control
@@ -24,9 +24,9 @@
 - Roles should be assigned according to the principle of the least privileged, excluding the use of the editor role
 - All users with edit, admin, owner rights added to Yandex.Cloud (not via AD FS with 2FA) should have two-factor authentication configured into their Yandex account
 - Serial console should be disabled
-- It is forbidden to store authorization keys in source code. All secrets, keys, passwords, and tokens should be stored in a secure Vault / KMS storage.
-- For each task, a separate service account should be created with the minimum required set of privileges. The name of the service account should reflect its tasks and assigned rights when created.
-- It is impossible to create API keys (instead of those authorized to obtain an IAM token) without agreement with the IS Department.
+- It is forbidden to store authorization keys in source code. All secrets, keys, passwords, and tokens should be stored in a secure Vault / KMS storage
+- For each task, a separate service account should be created with the minimum required set of privileges. The name of the service account should reflect its tasks and assigned rights when created
+- It is impossible to create API keys (instead of those authorized to obtain an IAM token) without agreement with the IS Department
 - The bucket should not have rules that allow full access, as well as read / write access for all authenticated users
 
 ## Logging requirements
@@ -38,7 +38,7 @@
 - If the bucket contains personal data, banking, or commercial secrets, then encryption should be configured for it
 - Versioning should be configured for the bucket
 - When creating a Kubernetes cluster in Yandex.Cloud, a network policy should be created based on the principle of the least privileged principle
-- The Kubernetes cluster should be configured according to CIS (for configuration that available for change by managed kubernetes).
+- The Kubernetes cluster should be configured according to CIS (for configuration that available for change by managed kubernetes)
 - It is desirable to configure updates for the cluster
 
 ## Marketplace
